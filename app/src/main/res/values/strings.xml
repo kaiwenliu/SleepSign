@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">DvHacks</string>
+    <string name="login">LOGIN</string>
+    <string name="sgnup">SIGN UP</string>
+    <string name="welcome">WELCOME!</string>
+    <string name="back">BACK</string>
+    <string name="logout">Logout</string>
+    <string name="enterEmail">Email</string>
+    <string name="password">Password</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="enterEmailToResetPassword">Enter your email below to reset your password</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="home">Home</string>
+    <string name="competitions">Competitions</string>
+    <string name="settings">Settings</string>
+    <string name="scout">Scout</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="zero">0</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="name">Name</string>
+    <string name="competitionLocation">Competition Location</string>
+    <string name="teamScouting">Team Scouting</string>
+    <string name="matchNumber">Match Number</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

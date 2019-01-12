@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "497994625857",
+    "firebase_url": "https://dvhacks-86077.firebaseio.com",
+    "project_id": "dvhacks-86077",
+    "storage_bucket": "dvhacks-86077.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497994625857:android:dad29c0be7a1987c",
+        "android_client_info": {
+          "package_name": "com.neelk.dvhacks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497994625857-9tg07qbqm9djl47e7lm835q07rcs3tru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neelk.dvhacks",
+            "certificate_hash": "57b9373c5cc5ff8dc75f05508b50c25300478454"
+          }
+        },
+        {
+          "client_id": "497994625857-3nmrv4f1e0ii30rc9shrds014ap0ufec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZtF4cjVaEec-rF1hf3KZdYW_G8L8ZbYw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497994625857-3nmrv4f1e0ii30rc9shrds014ap0ufec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
