@@ -58,16 +58,16 @@ public class NavigationBarManager extends AppCompatActivity {
             case R.id.menu_camera:
                 fragment = Fragment2.newInstance(this);
                 ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.constraint_layout, fragment, "Fragment2");
+                ft.replace(R.id.constraint_layout, fragment, "Camera");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
 
 
             case R.id.menu_map:
-                fragment = Settings.newInstance();
+                fragment = MapFragment.newInstance();
                 ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.constraint_layout, fragment, "Settings");
+                ft.replace(R.id.constraint_layout, fragment, "Map");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
