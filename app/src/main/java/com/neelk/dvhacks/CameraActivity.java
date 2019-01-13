@@ -1,6 +1,7 @@
 package com.neelk.dvhacks;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,10 +19,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.concurrent.ExecutionException;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -374,14 +378,15 @@ public class CameraActivity extends AppCompatActivity {
         super.onPause();
     }
     */
-
     private final int CAMERA_PHOTO_REQUEST_CODE = 200;
     private Uri imageUri;
     private Bitmap bitmap;
     private ImageView imageView;
     private Intent capturePhoto;
     private Button retakePhotoButton;
+    private Button takePicture;
     private int SUCCESS = 200;
+    private String result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -391,6 +396,9 @@ public class CameraActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         retakePhotoButton = findViewById(R.id.retakePhotoButton);
         retakePhotoButton.setOnClickListener(retakePhotoOnClick);
+
+        takePicture = findViewById(R.id.takePicture);
+        takePicture.setOnClickListener(goodPictureHandler);
         takePhoto();
         /*
         System.out.println("finished taking photos");
@@ -439,6 +447,24 @@ public class CameraActivity extends AppCompatActivity {
             imageView.setImageBitmap(bitmap);
         }
     }
+
+    private View.OnClickListener goodPictureHandler = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            WolframCloudCall caller = new WolframCloudCall();
+            caller.execute(bitmap);
+            TextView tv1 = (TextView)findViewById(R.id.sleepOrAwake);
+            try {
+                result = caller.get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            tv1.setText(result);
+            //The string result contains the result of the evaluation
+        }
+    };
 
     private View.OnClickListener retakePhotoOnClick = new View.OnClickListener() {
         @Override
