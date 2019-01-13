@@ -72,15 +72,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
         LatLng s1 = new LatLng(LATs1, LNGs1);
-        mMap.addMarker(new MarkerOptions().position(loc).title("Starbucks"));
+        mMap.addMarker(new MarkerOptions().position(s1).title("Starbucks"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(s1));
 
         LatLng s2 = new LatLng(LATs2, LNGs2);
-        mMap.addMarker(new MarkerOptions().position(loc).title("Starbucks"));
+        mMap.addMarker(new MarkerOptions().position(s2).title("Starbucks"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(s2));
 
         LatLng s3 = new LatLng(LATs3, LNGs3);
-        mMap.addMarker(new MarkerOptions().position(loc).title("Starbucks"));
+        mMap.addMarker(new MarkerOptions().position(s3).title("Starbucks"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(s3));
         CameraPosition camera_position = new CameraPosition.Builder().target(new LatLng(LAT, LNG)).zoom(12).build();
         CameraUpdate updateCamera = CameraUpdateFactory.newCameraPosition(camera_position);
