@@ -461,8 +461,7 @@ public class CameraActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            String[] probs = formatter(result);
-            tv1.setText(probs[0]);
+            tv1.setText(result);
             //The string result contains the result of the evaluation
         }
     };
@@ -473,17 +472,6 @@ public class CameraActivity extends AppCompatActivity {
             takePhoto();
         }
     };
-
-    private String[] formatter(String formatted){
-        formatted.replace("{","");
-        formatted.replace("}","");
-        formatted.replace(">",":");
-        formatted.replace("-","");
-        formatted.replace(",",":");
-        Log.d("LMAO",formatted);
-        String[] stringArr = formatted.split(":");
-        return stringArr;
-    }
 }
 
 
