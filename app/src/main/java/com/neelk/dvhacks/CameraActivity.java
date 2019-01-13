@@ -386,6 +386,7 @@ public class CameraActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_camera);
 
         imageView = findViewById(R.id.imageView);
         retakePhotoButton = findViewById(R.id.retakePhotoButton);
