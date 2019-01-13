@@ -70,8 +70,7 @@ public class Fragment2 extends Fragment implements ActivityCompat.OnRequestPermi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment2, container, false);
-        startCamera = view.findViewById(R.id.cameraButton);
-        startCamera.setOnClickListener(takePictureClicked);
+        startActivity(new Intent(getActivity(), CameraActivity.class));
         return view;
     }
 

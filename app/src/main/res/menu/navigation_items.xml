@@ -16,8 +16,8 @@
 
 
         <item
-            android:id="@+id/menu_settings"
-            android:title="Settings"
+            android:id="@+id/menu_map"
+            android:title="Map"
             android:icon="@drawable/ic_settings_black_24dp" />
     </menu>
 

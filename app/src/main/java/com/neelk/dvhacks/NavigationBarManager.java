@@ -64,7 +64,7 @@ public class NavigationBarManager extends AppCompatActivity {
                 break;
 
 
-            case R.id.menu_settings:
+            case R.id.menu_map:
                 fragment = Settings.newInstance();
                 ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.constraint_layout, fragment, "Settings");

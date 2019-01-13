@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -387,18 +388,18 @@ public class CameraActivity extends AppCompatActivity {
     private Button takePicture;
     private int SUCCESS = 200;
     private String result;
+    public static String output;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        imageView = findViewById(R.id.imageView);
-        retakePhotoButton = findViewById(R.id.retakePhotoButton);
-        retakePhotoButton.setOnClickListener(retakePhotoOnClick);
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
-        takePicture = findViewById(R.id.takePicture);
-        takePicture.setOnClickListener(goodPictureHandler);
+        imageView = findViewById(R.id.imageView);
+
+
         takePhoto();
         /*
         System.out.println("finished taking photos");
@@ -438,6 +439,7 @@ public class CameraActivity extends AppCompatActivity {
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
         if (requestCode == SUCCESS && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             bitmap = (Bitmap) extras.get("data");
@@ -445,34 +447,33 @@ public class CameraActivity extends AppCompatActivity {
                 System.out.println("image view is null onAc");
             }
             imageView.setImageBitmap(bitmap);
+            processImage();
+
         }
     }
 
-    private View.OnClickListener goodPictureHandler = new View.OnClickListener(){
-        @Override
-        public void onClick(View view) {
-            WolframCloudCall caller = new WolframCloudCall();
-            caller.execute(bitmap);
-            TextView tv1 = (TextView)findViewById(R.id.sleepOrAwake);
-            try {
-                result = caller.get();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            tv1.setText(result);
-            //The string result contains the result of the evaluation
+    private void processImage() {
+        findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
+        WolframCloudCall caller = new WolframCloudCall();
+        caller.execute(bitmap);
+        // TextView tv1 = (TextView)findViewById(R.id.sleepOrAwake);
+        try {
+            result = caller.get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-    };
 
-    private View.OnClickListener retakePhotoOnClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            takePhoto();
-        }
-    };
+        output = result;
+        System.out.println(output);
+        Intent intent = new Intent(CameraActivity.this, NavigationBarManager.class);
+        startActivity(intent);
+        //The string result contains the result of the evaluation
+    }
 }
+
+
 
 
 
