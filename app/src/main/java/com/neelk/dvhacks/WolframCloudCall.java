@@ -22,7 +22,7 @@ public class WolframCloudCall extends AsyncTask<Bitmap, Void, String> {
     @Override
     protected String doInBackground(Bitmap... personPic) {
         try{
-            URL _url = new URL("https://www.wolframcloud.com/objects/14e68ec8-d70a-412e-83a4-7401753c2f6f");
+            URL _url = new URL(""); //Insert wolfram sleep classifier here
             HttpURLConnection _conn = (HttpURLConnection) _url.openConnection();
             _conn.setRequestMethod("POST");
             _conn.setDoOutput(true);
